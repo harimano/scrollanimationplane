@@ -9,7 +9,7 @@ const flightPath = {
         {x:350,y:-50},
         {x:600,y:100},
         {x:800, y:0},
-        {x:window.innerWidth, y:150}
+        {x:window.innerWidth, y:-250}
     ]
 };
 
@@ -25,3 +25,17 @@ tween.add(
         ease:Power1.easeInOut
     })
 )
+
+const controller = new ScrollMagic.Controller(); 
+
+const scene = new ScrollMagic.Scene({
+    triggerElement:'.animation',
+    duration:1000,
+    triggerHook:0,
+
+})
+
+.setTween(tween)
+// .addIndicators() // removing the addindicators will remove it off the screen. 
+.setPin('.animation')
+.addTo(controller);
